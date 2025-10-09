@@ -11,5 +11,6 @@ CHIP Inc16 {
     OUT out[16];
 
     PARTS:
-    //// Replace this comment with your code.
+    // LSB を 1(true), それ以外を 0(false)にして 16bit 加算
+    Add16(a[0]=true, a[1..15]=false, b=in, out=out);
 }
