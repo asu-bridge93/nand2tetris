@@ -4,7 +4,7 @@ Building a modern computer from first principles. Starting with elementary NAND 
 
 ## Projects
 
-### [Project 1: Boolean Logic](projects/1/README.md)
+### [Project 1: Boolean Logic](projects/01_BooleanLogic/README.md)
 Implementation of fundamental logic gates, building from NAND to create Not, And, Or, Xor, Mux, DMux, and their variants.
 
 **What I Learned:**
