@@ -11,5 +11,23 @@ CHIP FullAdder {
         carry;   // Left bit of a + b + c
 
     PARTS:
-    //// Replace this comment with your code.
+    /*
+    全加算器の実装: 2回の半加算器と1回のOrで計算する
+    
+    第1段階: a + b を計算
+      a
+    + b
+    ---
+     Cs
+
+    第2段階: 前の結果 + 前からの繰り上げ を計算
+      s
+    + c  (前からの繰り上げ)
+    ---
+    C'S  (C'=最終carry, S=最終sum)
+    */
+    
+    HalfAdder(a=a, b=b, carry=C, sum=s);
+    HalfAdder(a=s, b=c, carry=CPrime, sum=sum);
+    Or(a=C, b=CPrime, out=carry);
 }
