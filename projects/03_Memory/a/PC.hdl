@@ -10,9 +10,27 @@
  * else              out(t+1) = out(t)
  */
 CHIP PC {
-    IN in[16],inc, load, reset;
+    IN in[16],load,inc,reset;
     OUT out[16];
-    
     PARTS:
-    //// Replace this comment with your code.
+    Inc16(in=regout, out=plusone);
+    
+    Mux16(a=false, b=plusone, sel=inc, out=incout);
+    
+    //　新しい値をセットするかどうか
+    Mux16(a=incout, b=in, sel=load, out=loadout);
+    
+    // 値を0にリセットするかどうか
+    Mux16(a=loadout, b=false, sel=reset, out=toload);
+
+    // 書き込み処理が発生しているかどうかを判定
+    Or(a=load, b=reset, out=loadorreset);
+    Or(a=loadorreset, b=inc, out=loadflag);
+
+    // レジスタの値の更新or保持
+    // Registerはload=0のとき、前回の値を保持する
+    Register(in=toload, load=loadflag, out=regout);
+    
+    // 最終的な結果を出力
+    Or16(a=regout, b=regout, out=out);
 }
