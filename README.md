@@ -38,3 +38,22 @@ Implementation of arithmetic circuits, from basic adders to a complete Arithmeti
 - ALU: 18 operations controlled by 6 control bits (zx, nx, zy, ny, f, no)
   - Arithmetic: 0, 1, -1, x+1, y+1, x-1, y-1, x+y, x-y, y-x
   - Logical: x, y, !x, !y, -x, -y, x&y, x|y
+
+### [Project 3: Memory](projects/03_Memory/README.md)
+Implementation of memory units and sequential logic, from single-bit registers to 16K RAM modules and a program counter.
+
+**What I Learned:**
+- **Sequential Logic**: Using DFF (Data Flip-Flop) as the primitive for storing state over time
+- **Feedback Loops**: Creating memory by feeding output back to input through a DFF
+- **Register Design**: Building multi-bit registers from 1-bit registers
+- **Memory Hierarchy**: Scaling from single registers to large RAM modules using hierarchical composition
+- **Address Decoding**: Using DMux to route write operations and Mux to route read operations
+- **Program Counter Logic**: Implementing increment, load, and reset operations with priority handling
+- **Time Abstraction**: Understanding the relationship between combinational logic and clock cycles
+
+**Implemented:**
+- Basic sequential: Bit (1-bit register using DFF)
+- Multi-bit register: Register (16-bit register)
+- Small RAM modules: RAM8, RAM64
+- Large RAM modules: RAM512, RAM4K, RAM16K
+- Program Counter: PC (with increment, load, and reset capabilities)
